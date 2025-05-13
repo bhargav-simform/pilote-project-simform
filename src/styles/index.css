@@ -1,0 +1,18 @@
+.indexContainer.light-theme {
+    background-color: #ffffff;
+    color: #333333;
+  }
+  
+  .indexContainer.dark-theme {
+    background-color: #333333;
+    color: #ffffff;
+  }
+
+  .indexContainer.dark-theme .ant-tabs-nav .ant-tabs-tab {
+    color: #ffffff;
+  }
+  
+  .indexContainer.dark-theme .ant-tabs-nav .ant-tabs-tab-active {
+    color: #ffffff;
+  }
+  

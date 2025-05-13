@@ -1,0 +1,95 @@
+
+.formContainer {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Light theme styles */
+.light-theme .formContainer {
+  background: #ffffff;
+}
+
+.light-theme .ant-form-item-label {
+  color: #333333;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.light-theme .input-light {
+  border-color: #d9d9d9;
+  border-radius: 4px;
+  padding: 8px;
+}
+
+.light-theme .ant-btn-primary {
+  background-color: #1890ff;
+  border-color: #1890ff;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+/* Dark theme styles */
+.dark-theme .formContainer {
+  background: #1c1c1c;
+}
+
+.dark-theme .ant-form-item-label label {
+  color: #e0e0e0;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.dark-theme .input-dark {
+  border-color: #434343;
+  border-radius: 4px;
+  padding: 8px;
+}
+
+.dark-theme .ant-btn-primary {
+  background-color: #1890ff;
+  border-color: #1890ff;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+/* General styles */
+.ant-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ant-form-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px; 
+  margin-bottom: 16px;
+}
+
+
+
+.ant-form-item-control-input {
+  width: 100%;
+}
+
+.ant-form-item-control-input input {
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.ant-form-item-explain-error {
+  color: #ff4d4f;
+  font-size: 12px;
+  margin-top: 4px; 
+  text-align: left;
+}
+
+.ant-btn {
+  font-size: 14px;
+  height: 32px;
+  line-height: 32px;
+  border-radius: 4px;
+}

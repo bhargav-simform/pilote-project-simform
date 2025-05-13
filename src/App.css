@@ -1,0 +1,22 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+
+
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.light-theme {
+  background-color: #ffffff;
+  color: #333333;
+}
+.dark-theme {
+  background-color: #333333; 
+  color: #ffffff; 
+}
+
