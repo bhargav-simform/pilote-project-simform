@@ -1,11 +1,15 @@
 const theme = {
   token: {
-    // Seed Token
-    colorPrimary: "#040b6b",
-    borderRadius: 2,
-
-    // Alias Token
-    colorBgContainer: "#f6ffed",
+    fontFamily: "Inter, sans-serif",
+    colorPrimary: "#2563eb",
+    borderRadius: 6,
+  },
+  components: {
+    Button: {
+      colorPrimary: "#2563eb",
+      colorText: "#fff",
+      fontWeight: 600,
+    },
   },
 };
 

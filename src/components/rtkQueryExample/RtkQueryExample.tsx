@@ -1,5 +1,4 @@
-import React from "react";
-import { userApi } from "src/store/api/userApi";
+import { userApi } from "../../store/api/userApi";
 
 const RtkQueryExample = () => {
   const { data, isLoading } = userApi.useGetUsersQuery();
