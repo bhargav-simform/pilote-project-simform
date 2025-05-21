@@ -2,7 +2,7 @@
 # React Js Boilerplate
 This boilerplate is starting point of any project with all batteries included. you can directly start development without spending time on project setup.
 ## Tech Stack
-**Client:** [React](react.dev), [Typescript](https://www.typescriptlang.org), [Vite](https://vitejs.dev/), [Redux (RTK-Query)](https://redux.js.org/), [React Router](https://reactrouter.com/en/main), 
+**Client:** [React](react.dev), [Typescript](https://www.typescriptlang.org), [Vite](https://vitejs.dev/), [Ant Design](https://ant.design/), [React Router](https://reactrouter.com/en/main), [styled-components](https://styled-components.com/)
  
 
 **Styling:** [Antd](https://ant.design/), [Storybook](https://storybook.js.org/), 
@@ -43,5 +43,3 @@ This boilerplate is starting point of any project with all batteries included. y
 - `pnpm lint` to lint a project 
  - `pnpm lint:fix` to lint:fix a project
 - `pnpm format` to format a project
-- `pnpm storybook` to start storybook dev server 
- - `pnpm build-storybook` to build storybook

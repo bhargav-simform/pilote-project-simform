@@ -1,18 +1,23 @@
 .indexContainer.light-theme {
-    background-color: #ffffff;
-    color: #333333;
-  }
-  
-  .indexContainer.dark-theme {
-    background-color: #333333;
-    color: #ffffff;
-  }
+  background-color: #ffffff;
+  color: #333333;
+}
 
-  .indexContainer.dark-theme .ant-tabs-nav .ant-tabs-tab {
-    color: #ffffff;
-  }
-  
-  .indexContainer.dark-theme .ant-tabs-nav .ant-tabs-tab-active {
-    color: #ffffff;
-  }
-  
+.indexContainer.dark-theme {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+.indexContainer.dark-theme .ant-tabs-nav .ant-tabs-tab {
+  color: #ffffff;
+}
+
+.indexContainer.dark-theme .ant-tabs-nav .ant-tabs-tab-active {
+  color: #ffffff;
+}
+
+.ant-menu-dark .ant-menu-item-selected {
+  background-color: #715917 !important;
+  color: #fff !important;
+}
+

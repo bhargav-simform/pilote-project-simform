@@ -4,32 +4,80 @@ import {
   Input,
   Button,
   Typography,
-  Checkbox,
   Image,
   Row,
   Col,
 } from "antd";
 import { useNavigate } from "react-router-dom";
 import { LockOutlined, MailOutlined } from "@ant-design/icons";
+import styled from "styled-components";
 import LoginImg from "../../assets/login-page.png";
 import { useNotify } from "../../context/notificationContext";
 import useLocalStorage from "../../hooks/useLocalStorage";
 
+const { Text, Title } = Typography;
 
-const { Text, Title, Link } = Typography;
+interface LoginFormValues {
+  email: string;
+  password: string;
+}
+
+// Styled Components
+const Container = styled.div`
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const FormWrapper = styled.div`
+  width: 100%;
+  max-width: 1100px;
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 3rem 2rem;
+`;
+
+const ImageCol = styled(Col)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const StyledImage = styled(Image)`
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  object-fit: contain;
+`;
+
+const FormSection = styled.div`
+  padding: 1rem;
+`;
+
+const FormHeader = styled.div`
+  margin-bottom: 2rem;
+  text-align: center;
+`;
 
 const SignIn: React.FC = () => {
   const notify = useNotify();
   const navigate = useNavigate();
   const [, setIsLoggedIn] = useLocalStorage<boolean>('user-logged-in', false);
 
-  const onFinish = (values: any) => {
-    if (values.email === 'admin@gmail.com' && values.password === 'Admin@123') {
+  const onFinish = (values: LoginFormValues): void => {
+    const { email, password } = values;
+
+    if (email === 'admin@gmail.com' && password === 'Admin@123') {
       notify('success', {
         message: 'Logged In Successfully',
       });
       setIsLoggedIn(true);
-      navigate("/")
+      navigate("/");
     } else {
       notify('error', {
         message: 'Invalid Credential',
@@ -37,50 +85,24 @@ const SignIn: React.FC = () => {
     }
   };
 
-  const styles = {
-    containerStyle: {
-      maxWidth: "1280px",
-      margin: "0 auto",
-      padding: "2rem",
-      textAlign: "center",
-      height: "100%",
-      display: "flex",
-      alignItems: "center"
-    }
-  }
-
   return (
-    <div style={styles.containerStyle}>
-      <div className="min-h-screen flex items-center justify-center bg-gray-50 p-4 h-[90vh] ">
-        <Row
-          gutter={[32, 32]}
-          className="w-full max-w-5xl bg-white rounded-2xl shadow-lg p-6 md:p-10"
-          align="middle"
-          justify="center"
-        >
-          <Col
-            xs={24}
-            md={12}
-            className="flex justify-center items-center"
-          >
-            <Image
-              src={LoginImg}
-              preview={false}
-              className="w-full max-w-md h-auto object-contain"
-              alt="Login"
-            />
-          </Col>
+    <Container>
+      <FormWrapper>
+        <Row gutter={[32, 32]} align="middle" justify="center">
+          <ImageCol xs={24} md={12}>
+            <StyledImage src={LoginImg} preview={false} alt="Login" />
+          </ImageCol>
 
           <Col xs={24} md={12}>
-            <div className="p-8 md:p-6">
-              <div className="mb-8 text-center">
-                <Title level={2} className="!mb-2">Sign in</Title>
+            <FormSection>
+              <FormHeader>
+                <Title level={2}>Sign in</Title>
                 <Text type="secondary">
                   Welcome back! Please enter your details below to sign in.
                 </Text>
-              </div>
+              </FormHeader>
 
-              <Form
+              <Form<LoginFormValues>
                 name="normal_login"
                 initialValues={{ remember: true }}
                 onFinish={onFinish}
@@ -90,7 +112,11 @@ const SignIn: React.FC = () => {
                 <Form.Item
                   name="email"
                   rules={[
-                    { type: "email", required: true, message: "Please input your Email!" },
+                    {
+                      type: "email",
+                      required: true,
+                      message: "Please input a valid Email!",
+                    },
                   ]}
                 >
                   <Input
@@ -111,32 +137,17 @@ const SignIn: React.FC = () => {
                   />
                 </Form.Item>
 
-                <Form.Item className="mb-0">
-                  <div className="flex items-center justify-between">
-                    <Form.Item name="remember" valuePropName="checked" noStyle>
-                      <Checkbox>Remember me</Checkbox>
-                    </Form.Item>
-                    <a className="text-blue-600 hover:underline" href="">
-                      Forgot password?
-                    </a>
-                  </div>
-                </Form.Item>
-
-                <Form.Item className="mb-0 mt-4">
+                <Form.Item style={{ marginTop: "1rem", marginBottom: 0 }}>
                   <Button block type="primary" htmlType="submit" size="large">
                     Log in
                   </Button>
-                  <div className="mt-6 text-center">
-                    <Text type="secondary">Don't have an account?</Text>{" "}
-                    <Link href="">Sign up now</Link>
-                  </div>
                 </Form.Item>
               </Form>
-            </div>
+            </FormSection>
           </Col>
         </Row>
-      </div>
-    </div>
+      </FormWrapper>
+    </Container>
   );
 };
 
