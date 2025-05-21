@@ -2,10 +2,10 @@
 # React Js Boilerplate
 This boilerplate is starting point of any project with all batteries included. you can directly start development without spending time on project setup.
 ## Tech Stack
-**Client:** [React](react.dev), [Typescript](https://www.typescriptlang.org), [Vite](https://vitejs.dev/), [Ant Design](https://ant.design/), [React Router](https://reactrouter.com/en/main), [styled-components](https://styled-components.com/)
+**Client:** [React](react.dev), [Typescript](https://www.typescriptlang.org), [Vite](https://vitejs.dev/), [React Router](https://reactrouter.com/en/main)
  
 
-**Styling:** [Antd](https://ant.design/), [Storybook](https://storybook.js.org/), 
+**Styling:** [Antd](https://ant.design/), [styled-components](https://styled-components.com/), 
 
 **Code Formatter:** [Prettier](https://prettier.io/),   [Eslint](https://eslint.org/) 
 
