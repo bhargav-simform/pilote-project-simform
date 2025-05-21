@@ -3,7 +3,6 @@ import {
   Card,
   Button,
   Table,
-  Modal,
   Form,
   Input,
   InputNumber,
@@ -26,8 +25,10 @@ import useLocalStorage from "../../hooks/useLocalStorage";
 import { MenuItem, MenuCategory } from "../../interface/types";
 import noImage from "../../assets/no-img.png";
 import { defaultCategories } from "../../utils/constant";
+import Modal from "../atoms/Modal";
 
 const { Option } = Select;
+
 
 // Styled Components
 const FiltersRow = styled(Row)`
@@ -64,6 +65,10 @@ const MenuManagement: React.FC = () => {
     "menu-categories",
     defaultCategories
   );
+
+const { confirm } = Modal;
+
+
   const [modalVisible, setModalVisible] = useState(false);
   const [editingItem, setEditingItem] = useState<MenuItem | null>(null);
   const [form] = Form.useForm();
@@ -99,21 +104,36 @@ const MenuManagement: React.FC = () => {
       ...item,
       image: item.image
         ? [
-            {
-              uid: "-1",
-              name: "image.png",
-              status: "done",
-              url: item.image,
-              thumbUrl: item.image,
-            },
-          ]
+          {
+            uid: "-1",
+            name: "image.png",
+            status: "done",
+            url: item.image,
+            thumbUrl: item.image,
+          },
+        ]
         : [],
     });
     setModalVisible(true);
   };
 
+
   const handleDelete = (id: string) => {
-    setMenuItems(menuItems.filter((item) => item.id !== id));
+    confirm({
+      title: 'Are you sure?',
+      content: (
+        <p className="fz-16">
+          This will move the menu item to the recycle bin.
+        </p>
+      ),
+      centered: true,
+      okText: 'Yes',
+      okType: 'danger',
+      cancelText: 'No',
+      onOk() {
+        setMenuItems(menuItems.filter((item) => item.id !== id));
+      }
+    });
   };
 
   const handleModalOk = () => {
@@ -260,7 +280,7 @@ const MenuManagement: React.FC = () => {
         columns={columns}
         dataSource={filteredItems}
         pagination={{ pageSize: 5 }}
-        scroll={{ x: 800, y: 800 }} 
+        scroll={{ x: 800, y: 800 }}
       />
 
       <Modal
