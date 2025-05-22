@@ -15,6 +15,16 @@ import MenuManagement from "../../components/molecules/MenuManagement";
 const { Header, Content, Sider } = Layout;
 
 // Styled Components
+const SiderComponent = styled(Sider)`
+  @media (max-width: 600px) {
+    &.ant-layout-sider {
+      position:fixed;
+      height: 100vh;
+      z-index:1;
+    }
+  }
+`
+
 const LogoContainer = styled.div`
   height: 65px;
   display: flex;
@@ -84,7 +94,7 @@ const Dashboard: React.FC = () => {
 
   return (
     <Layout style={{ minHeight: '100vh' }}>
-      <Sider breakpoint="lg" collapsedWidth="0">
+      <SiderComponent breakpoint="lg" collapsedWidth="0">
         <LogoContainer>
           <img src={logo} alt="logo" />
         </LogoContainer>
@@ -95,7 +105,7 @@ const Dashboard: React.FC = () => {
           items={items}
           onClick={handleMenuClick}
         />
-      </Sider>
+      </SiderComponent>
 
       <Layout style={{ minHeight: '100vh' }}>
         <StyledHeader>

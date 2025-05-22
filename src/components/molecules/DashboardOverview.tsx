@@ -8,18 +8,18 @@ const DashboardOverview: React.FC = () => {
   const [menuItems] = useLocalStorage<MenuItem[]>("menu-items", []);
 
   return (
-    <Row gutter={16}>
-      <Col span={8}>
+    <Row gutter={[16, 16]}>
+      <Col xs={24} sm={24} md={12} lg={8}>
         <Card>
           <Statistic title="Total Menu Items" value={menuItems.length} />
         </Card>
       </Col>
-      <Col span={8}>
+      <Col xs={24} sm={24} md={12} lg={8}>
         <Card>
           <Statistic title="Total Categories" value={defaultCategories.length} />
         </Card>
       </Col>
-      <Col span={8}>
+      <Col xs={24} sm={24} md={12} lg={8}>
         <Card>
           <Statistic title="Available Items" value={menuItems.filter(i => i.available).length} />
         </Card>
