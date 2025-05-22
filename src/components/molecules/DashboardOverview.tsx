@@ -1,11 +1,11 @@
 import React from "react";
 import { Card, Statistic, Row, Col } from "antd";
 import useLocalStorage from "../../hooks/useLocalStorage";
-import { MenuItem, MenuCategory } from "../../interface/types";
+import { MenuItem } from "../../interface/types";
+import { defaultCategories } from "../../utils/constant";
 
 const DashboardOverview: React.FC = () => {
   const [menuItems] = useLocalStorage<MenuItem[]>("menu-items", []);
-  const [categories] = useLocalStorage<MenuCategory[]>("menu-categories", []);
 
   return (
     <Row gutter={16}>
@@ -16,7 +16,7 @@ const DashboardOverview: React.FC = () => {
       </Col>
       <Col span={8}>
         <Card>
-          <Statistic title="Total Categories" value={categories.length} />
+          <Statistic title="Total Categories" value={defaultCategories.length} />
         </Card>
       </Col>
       <Col span={8}>

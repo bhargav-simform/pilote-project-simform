@@ -39,7 +39,7 @@ const StyledContent = styled(Content)`
 const ContentWrapper = styled.div<{ background: string; radius: string }>`
   background: ${({ background }) => background};
   border-radius: ${({ radius }) => radius};
-  padding: 24px;
+  padding: 8px;
   min-height: 360px;
 `;
 

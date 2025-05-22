@@ -33,7 +33,23 @@ const { Option } = Select;
 // Styled Components
 const FiltersRow = styled(Row)`
   margin-bottom: 16px;
+
+  @media (max-width: 576px) {
+    flex-direction: column;
+    row-gap: 12px;
+  }
+
+  @media (max-width: 786px) {
+    gap: 12px !important;
+  }
 `;
+
+const FilterCol = styled(Col)`
+  @media (max-width: 576px) {
+    width: 100% !important;
+  }
+`;
+
 
 const ImagePreview = styled.img`
   width: 50px;
@@ -66,7 +82,7 @@ const MenuManagement: React.FC = () => {
     defaultCategories
   );
 
-const { confirm } = Modal;
+  const { confirm } = Modal;
 
 
   const [modalVisible, setModalVisible] = useState(false);
@@ -241,17 +257,17 @@ const { confirm } = Modal;
       }
     >
       <FiltersRow gutter={16}>
-        <Col>
+        <FilterCol>
           <Input.Search
             placeholder="Search menu by name..."
             onChange={(e) => setSearch(e.target.value)}
           />
-        </Col>
-        <Col>
+        </FilterCol>
+        <FilterCol>
           <Select
             allowClear
             placeholder="Category"
-            style={{ width: 150 }}
+            style={{ width: "100%" }}
             onChange={(value: string | undefined) => setFilterCategory(value)}
           >
             {categories.map((cat) => (
@@ -260,21 +276,20 @@ const { confirm } = Modal;
               </Option>
             ))}
           </Select>
-        </Col>
-        <Col>
+        </FilterCol>
+        <FilterCol>
           <Select
             allowClear
             placeholder="Availability"
-            style={{ width: 120 }}
-            onChange={(value: boolean | undefined) =>
-              setFilterAvailable(value)
-            }
+            style={{ width: "100%" }}
+            onChange={(value: boolean | undefined) => setFilterAvailable(value)}
           >
             <Option value={true}>Available</Option>
             <Option value={false}>Unavailable</Option>
           </Select>
-        </Col>
+        </FilterCol>
       </FiltersRow>
+
       <Table
         rowKey="id"
         columns={columns}
