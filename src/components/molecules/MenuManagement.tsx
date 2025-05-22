@@ -229,7 +229,7 @@ const MenuManagement: React.FC = () => {
     },
     {
       title: "Action",
-      render: (_: any, record: MenuItem) => (
+      render: (_: unknown, record: MenuItem) => (
         <ActionButtons>
           <Button
             type="primary"
