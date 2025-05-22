@@ -3,25 +3,14 @@ import { useState, useCallback } from 'react';
 const useCopyToClipboard = () => {
   const [isCopied, setIsCopied] = useState<string | null>(null);
 
-  const copyToClipboard = useCallback((text: string) => {
-    if (navigator.clipboard) {
-      navigator.clipboard.writeText(text).then(
-        () => {
-          setIsCopied(text);
-          setTimeout(() => setIsCopied(null), 2000); 
-        },
-        () => setIsCopied(null)
-      );
-    } else {
-      // Fallback for older browsers
-      const textArea = document.createElement('textarea');
-      textArea.value = text;
-      document.body.appendChild(textArea);
-      textArea.select();
-      document.execCommand('copy');
-      document.body.removeChild(textArea);
+  const copyToClipboard = useCallback(async (text: string) => {
+    try {
+      await navigator.clipboard.writeText(text);
       setIsCopied(text);
       setTimeout(() => setIsCopied(null), 2000);
+    } catch (err) {
+      console.error('Failed to copy:', err);
+      setIsCopied(null);
     }
   }, []);
 

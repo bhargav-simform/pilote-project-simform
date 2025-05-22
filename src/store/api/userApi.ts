@@ -38,7 +38,6 @@ const baseQuery = fetchBaseQuery({
      * get the access token from the redux store with below code
      * const token = (getState() as RootState).auth.accessToken;
      */
-    // const token = (getState() as RootState).auth.accessToken;
     const accessToken = cookies.get("accessToken");
     if (accessToken) {
       headers.set("Content-type", "application/json");

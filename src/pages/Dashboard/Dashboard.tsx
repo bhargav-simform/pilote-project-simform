@@ -64,7 +64,7 @@ const Dashboard: React.FC = () => {
   const [, setIsLoggedIn] = useLocalStorage<boolean>('user-logged-in', true);
   const [searchParams] = useSearchParams();
   const keyFromParams: string | null = searchParams.get("key");
-  const [selectedKey, setSelectedKey] = useState<string>(keyFromParams || "1");
+  const [selectedKey, setSelectedKey] = useState<string>(keyFromParams ?? "1");
 
   const handleLogout = (): void => {
     setIsLoggedIn(false);

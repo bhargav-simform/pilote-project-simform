@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext, ReactNode } from 'react';
+import React, { createContext, useState, useContext, ReactNode, useMemo } from 'react';
 
 type Theme = 'light' | 'dark';
 
@@ -32,10 +32,10 @@ export const ThemeProvider: React.FC<{ children: ReactNode }> = ({ children }) =
     document.body.classList.remove('dark-theme');
   }
 
-  const contextValue: ThemeContextType = {
+  const contextValue: ThemeContextType = useMemo(()=>({
     theme,
     toggleTheme,
-  };
+  }),[theme, toggleTheme]);
 
   return <ThemeContext.Provider value={contextValue}>{children}</ThemeContext.Provider>;
 };

@@ -151,7 +151,7 @@ const { confirm } = Modal;
         } else {
           saveItem({
             ...values,
-            image: file.url || file.thumbUrl,
+            image: file.url ?? file.thumbUrl,
           });
         }
       } else {
