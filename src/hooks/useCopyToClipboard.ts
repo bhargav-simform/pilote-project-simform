@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback } from "react";
 
 const useCopyToClipboard = () => {
   const [isCopied, setIsCopied] = useState<string | null>(null);
@@ -9,7 +9,7 @@ const useCopyToClipboard = () => {
       setIsCopied(text);
       setTimeout(() => setIsCopied(null), 2000);
     } catch (err) {
-      console.error('Failed to copy:', err);
+      console.error("Failed to copy:", err);
       setIsCopied(null);
     }
   }, []);

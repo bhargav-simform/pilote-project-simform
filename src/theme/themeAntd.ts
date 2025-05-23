@@ -9,8 +9,7 @@ const theme = {
       colorPrimary: "#715917",
       colorText: "#fff",
       fontWeight: 600,
-      
-    }
+    },
   },
 };
 

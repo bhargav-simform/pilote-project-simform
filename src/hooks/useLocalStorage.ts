@@ -22,7 +22,7 @@ function useLocalStorage<T>(key: string, initialValue: T | (() => T)) {
       setLocalStorageVal(value);
       localStorage.setItem(key, JSON.stringify(value));
     },
-    [key]
+    [key],
   );
 
   return [localStorageVal, setValue] as const;

@@ -1,13 +1,5 @@
 import React from "react";
-import {
-  Form,
-  Input,
-  Button,
-  Typography,
-  Image,
-  Row,
-  Col,
-} from "antd";
+import { Form, Input, Button, Typography, Image, Row, Col } from "antd";
 import { useNavigate } from "react-router-dom";
 import { LockOutlined, MailOutlined } from "@ant-design/icons";
 import styled from "styled-components";
@@ -67,20 +59,20 @@ const FormHeader = styled.div`
 const SignIn: React.FC = () => {
   const notify = useNotify();
   const navigate = useNavigate();
-  const [, setIsLoggedIn] = useLocalStorage<boolean>('user-logged-in', false);
+  const [, setIsLoggedIn] = useLocalStorage<boolean>("user-logged-in", false);
 
   const onFinish = (values: LoginFormValues): void => {
     const { email, password } = values;
 
-    if (email === 'admin@gmail.com' && password === 'Admin@123') {
-      notify('success', {
-        message: 'Logged In Successfully',
+    if (email === "admin@gmail.com" && password === "Admin@123") {
+      notify("success", {
+        message: "Logged In Successfully",
       });
       setIsLoggedIn(true);
       navigate("/");
     } else {
-      notify('error', {
-        message: 'Invalid Credential',
+      notify("error", {
+        message: "Invalid Credential",
       });
     }
   };
@@ -128,7 +120,9 @@ const SignIn: React.FC = () => {
 
                 <Form.Item
                   name="password"
-                  rules={[{ required: true, message: "Please input your Password!" }]}
+                  rules={[
+                    { required: true, message: "Please input your Password!" },
+                  ]}
                 >
                   <Input.Password
                     prefix={<LockOutlined />}

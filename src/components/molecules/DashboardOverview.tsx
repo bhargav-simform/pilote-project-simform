@@ -16,12 +16,18 @@ const DashboardOverview: React.FC = () => {
       </Col>
       <Col xs={24} sm={24} md={12} lg={8}>
         <Card>
-          <Statistic title="Total Categories" value={defaultCategories.length} />
+          <Statistic
+            title="Total Categories"
+            value={defaultCategories.length}
+          />
         </Card>
       </Col>
       <Col xs={24} sm={24} md={12} lg={8}>
         <Card>
-          <Statistic title="Available Items" value={menuItems.filter(i => i.available).length} />
+          <Statistic
+            title="Available Items"
+            value={menuItems.filter((i) => i.available).length}
+          />
         </Card>
       </Col>
     </Row>

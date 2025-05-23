@@ -29,7 +29,6 @@ import Modal from "../atoms/Modal";
 
 const { Option } = Select;
 
-
 // Styled Components
 const FiltersRow = styled(Row)`
   margin-bottom: 16px;
@@ -49,7 +48,6 @@ const FilterCol = styled(Col)`
     width: 100% !important;
   }
 `;
-
 
 const ImagePreview = styled.img`
   width: 50px;
@@ -75,15 +73,14 @@ const FullWidthInputNumber = styled(InputNumber)`
 const MenuManagement: React.FC = () => {
   const [menuItems, setMenuItems] = useLocalStorage<MenuItem[]>(
     "menu-items",
-    []
+    [],
   );
   const [categories] = useLocalStorage<MenuCategory[]>(
     "menu-categories",
-    defaultCategories
+    defaultCategories,
   );
 
   const { confirm } = Modal;
-
 
   const [modalVisible, setModalVisible] = useState(false);
   const [editingItem, setEditingItem] = useState<MenuItem | null>(null);
@@ -120,35 +117,34 @@ const MenuManagement: React.FC = () => {
       ...item,
       image: item.image
         ? [
-          {
-            uid: "-1",
-            name: "image.png",
-            status: "done",
-            url: item.image,
-            thumbUrl: item.image,
-          },
-        ]
+            {
+              uid: "-1",
+              name: "image.png",
+              status: "done",
+              url: item.image,
+              thumbUrl: item.image,
+            },
+          ]
         : [],
     });
     setModalVisible(true);
   };
 
-
   const handleDelete = (id: string) => {
     confirm({
-      title: 'Are you sure?',
+      title: "Are you sure?",
       content: (
         <p className="fz-16">
           This will move the menu item to the recycle bin.
         </p>
       ),
       centered: true,
-      okText: 'Yes',
-      okType: 'danger',
-      cancelText: 'No',
+      okText: "Yes",
+      okType: "danger",
+      cancelText: "No",
       onOk() {
         setMenuItems(menuItems.filter((item) => item.id !== id));
-      }
+      },
     });
   };
 
@@ -189,7 +185,7 @@ const MenuManagement: React.FC = () => {
 
     if (editingItem) {
       setMenuItems(
-        menuItems.map((item) => (item.id === editingItem.id ? newItem : item))
+        menuItems.map((item) => (item.id === editingItem.id ? newItem : item)),
       );
     } else {
       setMenuItems([...menuItems, newItem]);
@@ -313,11 +309,7 @@ const MenuManagement: React.FC = () => {
           </Button>,
         ]}
       >
-        <Form
-          form={form}
-          layout="vertical"
-          initialValues={{ available: true }}
-        >
+        <Form form={form} layout="vertical" initialValues={{ available: true }}>
           <Form.Item
             name="name"
             label="Name"
@@ -355,11 +347,7 @@ const MenuManagement: React.FC = () => {
           >
             <FullWidthInputNumber prefix="₹" />
           </Form.Item>
-          <Form.Item
-            name="available"
-            label="Available"
-            valuePropName="checked"
-          >
+          <Form.Item name="available" label="Available" valuePropName="checked">
             <Switch />
           </Form.Item>
           <Form.Item

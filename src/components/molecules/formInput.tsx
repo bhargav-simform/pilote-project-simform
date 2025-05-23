@@ -4,11 +4,10 @@ import {
   UserOutlined,
   MailOutlined,
   PhoneOutlined,
-  LockOutlined
+  LockOutlined,
 } from "@ant-design/icons";
 import InputAtom from "../atoms/input";
 import "../../styles/form.css";
-
 
 const FormInput: React.FC = () => {
   return (
@@ -26,7 +25,7 @@ const FormInput: React.FC = () => {
         name="email"
         rules={[
           { required: true, message: "Please enter your email!" },
-          { type: "email", message: "Please enter a valid email address!" }
+          { type: "email", message: "Please enter a valid email address!" },
         ]}
       >
         <InputAtom prefix={<MailOutlined />} placeholder="Enter your email" />
@@ -37,7 +36,10 @@ const FormInput: React.FC = () => {
         name="phone"
         rules={[{ required: true, message: "Please enter your phone number!" }]}
       >
-        <InputAtom prefix={<PhoneOutlined />} placeholder="Enter your phone number" />
+        <InputAtom
+          prefix={<PhoneOutlined />}
+          placeholder="Enter your phone number"
+        />
       </Form.Item>
 
       <Form.Item

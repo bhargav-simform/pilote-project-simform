@@ -1,5 +1,5 @@
-import React from 'react';
-import { Modal as AntModal } from 'antd';
+import React from "react";
+import { Modal as AntModal } from "antd";
 
 interface CommonModalProps {
   title?: React.ReactNode;
@@ -32,8 +32,8 @@ const ModalComponent: React.FC<CommonModalProps> = ({
   onOk,
   onCancel,
   confirmLoading = false,
-  okText = 'OK',
-  cancelText = 'Cancel',
+  okText = "OK",
+  cancelText = "Cancel",
   children,
   footer,
   width = 520,

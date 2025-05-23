@@ -1,5 +1,5 @@
-import React from 'react';
-import { Drawer as AntDrawer} from 'antd';
+import React from "react";
+import { Drawer as AntDrawer } from "antd";
 
 interface CommonDrawerProps {
   title?: React.ReactNode;
@@ -10,7 +10,7 @@ interface CommonDrawerProps {
   footer?: React.ReactNode;
   destroyOnClose?: boolean;
   closable?: boolean;
-  placement?: 'left' | 'right' | 'top' | 'bottom';
+  placement?: "left" | "right" | "top" | "bottom";
   maskClosable?: boolean;
 }
 
@@ -23,7 +23,7 @@ const Drawer: React.FC<CommonDrawerProps> = ({
   footer,
   destroyOnClose = true,
   closable = true,
-  placement = 'right',
+  placement = "right",
   maskClosable = true,
 }) => {
   return (

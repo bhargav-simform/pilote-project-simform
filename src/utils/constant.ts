@@ -1,13 +1,13 @@
 import { MenuCategory } from "../interface/types";
 
 export const LINK_PATHS = {
-    dashboard: {
-        path: '/'
-    },
-    signin : {
-        path: '/sign-in'
-    }
-}
+  dashboard: {
+    path: "/",
+  },
+  signin: {
+    path: "/sign-in",
+  },
+};
 
 export const defaultCategories: MenuCategory[] = [
   { id: "1", name: "Starters" },

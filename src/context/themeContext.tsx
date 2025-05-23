@@ -1,41 +1,56 @@
-import React, { createContext, useState, useContext, ReactNode, useMemo } from 'react';
+import React, {
+  createContext,
+  useState,
+  useContext,
+  ReactNode,
+  useMemo,
+} from "react";
 
-type Theme = 'light' | 'dark';
+type Theme = "light" | "dark";
 
 interface ThemeContextType {
   theme: Theme;
   toggleTheme: () => void;
 }
 
-const initialTheme: Theme = 'light';
+const initialTheme: Theme = "light";
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const useTheme = (): ThemeContextType => {
   const context = useContext(ThemeContext);
   if (!context) {
-    throw new Error('useTheme must be used within a ThemeProvider');
+    throw new Error("useTheme must be used within a ThemeProvider");
   }
   return context;
 };
 
-export const ThemeProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+export const ThemeProvider: React.FC<{ children: ReactNode }> = ({
+  children,
+}) => {
   const [theme, setTheme] = useState<Theme>(initialTheme);
 
   const toggleTheme = (): void => {
-    setTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
+    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
   };
 
-  if (theme === 'dark') {
-    document.body.classList.add('dark-theme');
+  if (theme === "dark") {
+    document.body.classList.add("dark-theme");
   } else {
-    document.body.classList.remove('dark-theme');
+    document.body.classList.remove("dark-theme");
   }
 
-  const contextValue: ThemeContextType = useMemo(()=>({
-    theme,
-    toggleTheme,
-  }),[theme, toggleTheme]);
+  const contextValue: ThemeContextType = useMemo(
+    () => ({
+      theme,
+      toggleTheme,
+    }),
+    [theme, toggleTheme],
+  );
 
-  return <ThemeContext.Provider value={contextValue}>{children}</ThemeContext.Provider>;
+  return (
+    <ThemeContext.Provider value={contextValue}>
+      {children}
+    </ThemeContext.Provider>
+  );
 };

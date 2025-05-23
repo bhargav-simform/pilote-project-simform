@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import {
   MenuUnfoldOutlined,
   DashboardOutlined,
   LogoutOutlined,
-} from '@ant-design/icons';
-import { Button, Layout, Menu, MenuProps, theme } from 'antd';
-import styled from 'styled-components';
-import logo from '../../assets/simform.svg';
-import useLocalStorage from '../../hooks/useLocalStorage';
-import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
+} from "@ant-design/icons";
+import { Button, Layout, Menu, MenuProps, theme } from "antd";
+import styled from "styled-components";
+import logo from "../../assets/simform.svg";
+import useLocalStorage from "../../hooks/useLocalStorage";
+import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
 import DashboardOverview from "../../components/molecules/DashboardOverview";
 import MenuManagement from "../../components/molecules/MenuManagement";
 
@@ -18,12 +18,12 @@ const { Header, Content, Sider } = Layout;
 const SiderComponent = styled(Sider)`
   @media (max-width: 600px) {
     &.ant-layout-sider {
-      position:fixed;
+      position: fixed;
       height: 100vh;
-      z-index:1;
+      z-index: 1;
     }
   }
-`
+`;
 
 const LogoContainer = styled.div`
   height: 65px;
@@ -54,11 +54,11 @@ const ContentWrapper = styled.div<{ background: string; radius: string }>`
 `;
 
 const rawMenuItems = [
-  { icon: DashboardOutlined, name: 'Dashboard' },
-  { icon: MenuUnfoldOutlined, name: 'MenuItems' },
+  { icon: DashboardOutlined, name: "Dashboard" },
+  { icon: MenuUnfoldOutlined, name: "MenuItems" },
 ];
 
-const items: MenuProps['items'] = rawMenuItems.map((item, index) => ({
+const items: MenuProps["items"] = rawMenuItems.map((item, index) => ({
   key: String(index + 1),
   icon: React.createElement(item.icon),
   label: item.name,
@@ -71,7 +71,7 @@ const Dashboard: React.FC = () => {
 
   const navigate = useNavigate();
   const location = useLocation();
-  const [, setIsLoggedIn] = useLocalStorage<boolean>('user-logged-in', true);
+  const [, setIsLoggedIn] = useLocalStorage<boolean>("user-logged-in", true);
   const [searchParams] = useSearchParams();
   const keyFromParams: string | null = searchParams.get("key");
   const [selectedKey, setSelectedKey] = useState<string>(keyFromParams ?? "1");
@@ -87,13 +87,13 @@ const Dashboard: React.FC = () => {
     }
   }, [keyFromParams, location.pathname, navigate]);
 
-  const handleMenuClick: MenuProps['onClick'] = (e) => {
+  const handleMenuClick: MenuProps["onClick"] = (e) => {
     setSelectedKey(e.key);
     navigate(`?key=${e.key}`);
   };
 
   return (
-    <Layout style={{ minHeight: '100vh' }}>
+    <Layout style={{ minHeight: "100vh" }}>
       <SiderComponent breakpoint="lg" collapsedWidth="0">
         <LogoContainer>
           <img src={logo} alt="logo" />
@@ -107,17 +107,25 @@ const Dashboard: React.FC = () => {
         />
       </SiderComponent>
 
-      <Layout style={{ minHeight: '100vh' }}>
+      <Layout style={{ minHeight: "100vh" }}>
         <StyledHeader>
-          <div style={{ marginLeft: 'auto' }}>
-            <Button type="primary" icon={<LogoutOutlined />} danger onClick={handleLogout}>
+          <div style={{ marginLeft: "auto" }}>
+            <Button
+              type="primary"
+              icon={<LogoutOutlined />}
+              danger
+              onClick={handleLogout}
+            >
               Logout
             </Button>
           </div>
         </StyledHeader>
 
         <StyledContent>
-          <ContentWrapper background={colorBgContainer} radius={`${borderRadiusLG}px`}>
+          <ContentWrapper
+            background={colorBgContainer}
+            radius={`${borderRadiusLG}px`}
+          >
             {selectedKey === "1" ? <DashboardOverview /> : <MenuManagement />}
           </ContentWrapper>
         </StyledContent>

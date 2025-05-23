@@ -6,14 +6,14 @@ export interface FormData {
   phone?: string;
 }
 
-export interface FormDataTableProps  {
-  dataSource: FormData[]; 
-  handleDelete : (id:string) => void  
+export interface FormDataTableProps {
+  dataSource: FormData[];
+  handleDelete: (id: string) => void;
 }
 
 export interface FormContainerProps {
-  formData: FormData[]; 
-  updateFormData: (newFormData: FormData) => void; 
+  formData: FormData[];
+  updateFormData: (newFormData: FormData) => void;
 }
 
 export interface MenuCategory {
@@ -30,4 +30,3 @@ export interface MenuItem {
   categoryId: string;
   available: boolean;
 }
-

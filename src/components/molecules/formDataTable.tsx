@@ -8,7 +8,7 @@ import useCopyToClipboard from "../../hooks/useCopyToClipboard";
 
 const FormDataTable: React.FC<FormDataTableProps> = ({
   dataSource,
-  handleDelete
+  handleDelete,
 }) => {
   const { copyToClipboard, isCopied } = useCopyToClipboard();
 
@@ -17,8 +17,8 @@ const FormDataTable: React.FC<FormDataTableProps> = ({
       title: "ID",
       dataIndex: "id",
       sorter: {
-        compare: (a, b) => (a.id && b.id) ? a.id.localeCompare(b.id) : 0,
-        multiple: 1
+        compare: (a, b) => (a.id && b.id ? a.id.localeCompare(b.id) : 0),
+        multiple: 1,
       },
       render: (text) => (
         <div>
@@ -30,15 +30,16 @@ const FormDataTable: React.FC<FormDataTableProps> = ({
             onClick={() => copyToClipboard(text)}
           />
         </div>
-      )
+      ),
     },
     {
       title: "Name",
       dataIndex: "name",
       sorter: {
-        compare: (a, b) => (a.name && b.name) ? a.name.localeCompare(b.name) : 0,
-        multiple: 1
-      }
+        compare: (a, b) =>
+          a.name && b.name ? a.name.localeCompare(b.name) : 0,
+        multiple: 1,
+      },
     },
     {
       title: "Email",
@@ -53,11 +54,11 @@ const FormDataTable: React.FC<FormDataTableProps> = ({
             onClick={() => copyToClipboard(text)}
           />
         </div>
-      )
+      ),
     },
     {
       title: "Phone",
-      dataIndex: "phone"
+      dataIndex: "phone",
     },
     {
       title: "Action",
@@ -70,15 +71,15 @@ const FormDataTable: React.FC<FormDataTableProps> = ({
             icon={<DeleteOutlined />}
           />
         </span>
-      )
-    }
+      ),
+    },
   ];
 
   const onChange: TableProps<FormData>["onChange"] = (
     pagination,
     filters,
     sorter,
-    extra
+    extra,
   ) => {
     console.log("params", pagination, filters, sorter, extra);
   };
