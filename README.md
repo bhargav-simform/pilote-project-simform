@@ -60,6 +60,14 @@ Ensure code quality with [SonarQube](https://www.sonarsource.com/products/sonarq
 
 3. Add a `sonar-project.properties` file to the root of your project with necessary configuration.
 
+   ```bash
+    sonar.projectKey=
+    sonar.projectName=
+    sonar.sources=src
+    sonar.exclusions=node_modules/**,dist/**,build/**
+    sonar.typescript.tsconfigPath=tsconfig.json
+    ```
+
 4. Run Sonar analysis:
 
    ```bash
