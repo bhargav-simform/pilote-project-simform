@@ -1,19 +1,69 @@
+Here's a clean and professional version of your README with improved grammar, structure, and formatting for clarity and developer-friendliness:
+
+---
+
 ![Logo](https://www.simform.com/wp-content/uploads/2022/12/logo.svg)
-# React Js Boilerplate
-This boilerplate is starting point of any project with all batteries included. you can directly start development without spending time on project setup.
-## Tech Stack
-**Client:** [React](react.dev), [Typescript](https://www.typescriptlang.org), [Vite](https://vitejs.dev/), [React Router](https://reactrouter.com/en/main)
- 
 
-**Styling:** [Antd](https://ant.design/), [styled-components](https://styled-components.com/), 
+# 🚀 React.js Boilerplate
 
-**Code Formatter:** [Prettier](https://prettier.io/),   [Eslint](https://eslint.org/) 
+A modern, batteries-included React.js boilerplate to kickstart your project with zero setup hassle. Preconfigured with essential tooling, this setup lets you focus on building features — not configuring the environment.
 
-### Other useful scripts
-- `npm build` to build a project
-- `npm dev` to run (dev) a project
-- `npm build` to build a project
-- `npm preview` to run preview a project
-- `npm lint` to lint a project 
- - `npm lint:fix` to lint:fix a project
-- `npm format` to format a project
+---
+
+## 🛠️ Tech Stack
+
+### **Frontend**
+
+* [React](https://react.dev)
+* [TypeScript](https://www.typescriptlang.org)
+* [Vite](https://vitejs.dev) – blazing fast dev/build tool
+* [React Router](https://reactrouter.com/en/main)
+
+### **Styling**
+
+* [Ant Design (Antd)](https://ant.design)
+* [styled-components](https://styled-components.com)
+
+### **Code Quality**
+
+* [ESLint](https://eslint.org)
+* [Prettier](https://prettier.io)
+
+---
+
+## 📦 Available Scripts
+
+| Command            | Description                          |
+| ------------------ | ------------------------------------ |
+| `npm run dev`      | Start development server             |
+| `npm run build`    | Build the project for production     |
+| `npm run preview`  | Preview the production build locally |
+| `npm run lint`     | Lint the codebase                    |
+| `npm run lint:fix` | Auto-fix lint issues                 |
+| `npm run format`   | Format code using Prettier           |
+
+---
+
+## 🔍 SonarQube Integration
+
+Ensure code quality with [SonarQube](https://www.sonarsource.com/products/sonarqube/).
+
+### 👉 To run locally:
+
+1. Start SonarQube locally:
+
+   ```bash
+   ./sonar.sh start
+   ```
+
+2. Create a project on your local SonarQube instance and generate a token.
+
+3. Add a `sonar-project.properties` file to the root of your project with necessary configuration.
+
+4. Run Sonar analysis:
+
+   ```bash
+   sonar -Dsonar.host.url=http://localhost:9000 -Dsonar.token=<YOUR_TOKEN>
+   ```
+
+---
